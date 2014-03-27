@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript" src="../scripts/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="../scripts/jquery-ui-1.10.4/ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="../scripts/raphael.js"></script>
+	<script type="text/javascript" src="scripts/statistics.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+	<script type="text/javascript" src="scripts/population.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../scripts/jquery-ui-1.10.4/themes/base/jquery.ui.all.css">
+    <title>Confidence Interval Creation</title>
+</head>
+<body>
+
+	<h3><a href="http://wise.cgu.edu">WISE</a> Confidence Interval Creation</h3>
+		<div id="wrap">
+			<div class="graph" id="graph1"></div> 
+			<div class="graph" id="graph2"></div> 
+	 			<div id="buttonbar"><br>
+				
+	 				<table id="buttontable">
+						<tr><td style="color:#4696D7">Population:</td></tr>
+						<tr><td style="text-align:left; font-size:16px;" class="population"><label for="normal"><input class="pops" type="radio" id="normal" name="sam" value="normal" checked>Normal</label></td></tr>
+						<tr><td style="text-align:left; font-size:16px;" class="population"><label for="skewed"><input class="pops" type="radio" id="skewed" name="sam" value="skewed">Skewed</td></tr>
+						<tr><td style="text-align:left; font-size:16px;" class="population"><label for="skewedbi"><input class="pops" type="radio" id="skewedbi" name="sam" value="skewedbi">Skewed Bimodal</td></tr>
+						<tr><td style="text-align:left; font-size:16px;" class="population" ><label for="custom"><input class="pops" type="radio" id="custom" name="sam" value="custom">Custom</td></tr>
+						<tr><td class="spacer" id="spacer1"></td></tr>
+						
+	 					<tr><td class="button" id="button1">RESET</td></tr>
+	 					<tr><td class="button" id="button2">SAMPLE</td></tr>
+	 					<tr><td class="spacer" id="spacer1"></td></tr>
+
+						<tr><td style="text-align:center;color:#B26B00">Sample Size:</td></tr>
+						<tr><td align="center"><div style="width:100px" id="slider"></div></td></tr>
+						<tr><td><input type="text" value="text" name="something" id="samplesize" size="10" style="text-align:center; font-weight:bold; border:0; font-size:24px; color:#B26B00" readonly></td></tr>
+						<tr><td class="spacer" id="spacer1"></td></tr>
+					
+	 				</table>
+	 			</div>
+	 		<div id="clearBoth"></div>
+	 	</div>
+		<div id="clearBoth"></div>
+	 	<div id="xdist"></div>
+		
+</body>
+
+</html>
