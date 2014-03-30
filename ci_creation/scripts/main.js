@@ -70,14 +70,26 @@ window.onload=(function(){
         for (i = 0; i<48; i++) {
             var height = popRatio(POP_DATA[i]);
             var xDelta = WIDTH/48 + (i*12.5) - 12.5;
-            var rect = topgraph.rect(WIDTH/48 + (i*12.5) - 12.5, T_HEIGHT-height, 12.5, POP_DATA[i]*height).attr({"stroke-width": 1, "stroke": "BLACK", "fill": "#4696D7"});
+            var rect = topgraph
+                        .rect(WIDTH/48 + (i*12.5) - 12.5, T_HEIGHT-height, 12.5, POP_DATA[i]*height)
+                        .attr({
+                                "stroke-width": 1,
+                                "stroke": "BLACK",
+                                "fill": "#4696D7"
+                        });
             POP_RECT.push(rect);
 
 
             var tick = botgraph.path("M " + xDelta +" 0 L " + xDelta + " 6");
 
             if (i%5 == 0 && i != 0) {
-                var label = botgraph.text(xDelta, 12, i*20).attr({"font-size": 12, "font-family": FONT_FAMILY, "stroke": "gray"});
+                var label = botgraph
+                                .text(xDelta, 12, i*20)
+                                .attr({
+                                    "font-size": 12,
+                                    "font-family": FONT_FAMILY,
+                                    "stroke": "gray"
+                                });
             }
         }
         drawMeanLine(POP_MEAN);
@@ -109,7 +121,13 @@ window.onload=(function(){
     });
 
     function drawMean() {
-        displayMean = topgraph.text(WIDTH/2, 10, "Population Parameters: Mean = " + POP_MEAN + ", SD = " + POP_SD).attr({"font-size": 12, "font-family": FONT_FAMILY, "stroke":"#4696D7"});
+        displayMean = topgraph
+                        .text(WIDTH/2, 10, "Population Parameters: Mean = " + POP_MEAN + ", SD = " + POP_SD)
+                        .attr({
+                            "font-size": 12,
+                            "font-family": FONT_FAMILY,
+                            "stroke":"#4696D7"
+                        });
     }
 
 
@@ -130,7 +148,12 @@ window.onload=(function(){
             meanLine.remove();
         }
         catch(e) {}
-        meanLine = botgraph.path("M " + WIDTH/960*mean + " " + B_HEIGHT +" L" + WIDTH/960*mean + " 17").attr({"stroke-width": 3,"stroke":"#4696D7"});
+        meanLine = botgraph
+                    .path("M " + WIDTH/960*mean + " " + B_HEIGHT +" L" + WIDTH/960*mean + " 17")
+                    .attr({
+                        "stroke-width": 3,
+                        "stroke":"#4696D7"
+                    });
     }
 
     function drawInterval(limits) {
@@ -153,7 +176,12 @@ window.onload=(function(){
             s="BLACK";
         }
 
-        interval = botgraph.path("M " + lmap + " 30 L " +umap +" 30").attr({"stroke-width": 3, "stroke": s});
+        interval = botgraph
+                    .path("M " + lmap + " 30 L " +umap +" 30")
+                    .attr({
+                        "stroke-width": 3,
+                        "stroke": s
+                    });
         /*interval.hover(function() {
           this.g = this.glow().attr({color: s, width: 100});
 
@@ -196,7 +224,7 @@ window.onload=(function(){
             $(this).css("background-color","#4696D7");
         },
         function() {
-            if($(this).children("label").children(".pops").attr("id")==$('input[name=sam]:checked').val()) {}
+            if($(this).children("label").children(".pops").attr("id") == $('input[name=sam]:checked').val()) {}
             else{
                 $(this).css("background-color","white");
             }
@@ -208,7 +236,13 @@ window.onload=(function(){
         POP_DATA=[0,0,0,0,0,0,0,0,0,0,1,1,2,3,4,7,9,13,17,22,27,31,35,38,40,40,38,35,31,27,22,17,13,9,7,4,3,2,1,1,0,0,0,0,0,0,0,0];
         changePop(POP_DATA);
         displayMean.remove();
-        displayMean = topgraph.text(WIDTH/2, 10,"Population Parameters: Mean = " + 500+".00" + ", SD = " + 100 +".00").attr({"font-size": 12, "font-family": FONT_FAMILY, "stroke":"#4696D7"});
+        displayMean = topgraph
+                        .text(WIDTH/2, 10,"Population Parameters: Mean = " + 500+".00" + ", SD = " + 100 +".00")
+                        .attr({
+                            "font-size": 12,
+                            "font-family": FONT_FAMILY,
+                            "stroke":"#4696D7"
+                        });
     });
 
     $("#skewed").click(function() {

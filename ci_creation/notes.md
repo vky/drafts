@@ -1,0 +1,3 @@
+* topograph object - Global variable defined in a function IS EXTREMELY ANNOYING.
+* 12.5 is seemingly used a lot in relation to topograph.rect method. Using constant numbers like that, especially in an undocumented manner is bad. I, as a new-comer to the code, don't know what these fancy numbers mean.
+* Following the previous point, there are too many numbers in the code without description of what they're for. They can be inferred by looking up the documentation for Raphael, as that's when they're seemingly most used, but why are you making me work so much? This person that you're making work, it's not just me, it's future-you who no longer has the working knowledge built up while writting the program.
