@@ -40,7 +40,7 @@ window.onload=(function(){
         changeData(bar, h);
     };
 
-    function getBar(e) {
+    function getBar(e, WIDTH) {
         // Calculates and returns the bar that was clicked
         var x= e.pageX-$("#graph1").offset().left;
         var y= T_HEIGHT-(e.pageY-$("#graph1").offset().top);
@@ -64,7 +64,7 @@ window.onload=(function(){
 
     // Create the two canvases
 
-    function createCanvas() {
+    function createCanvas(WIDTH) {
         topgraph = Raphael("graph1", WIDTH, T_HEIGHT);
         botgraph = Raphael("graph2", WIDTH, B_HEIGHT);
         for (i = 0; i<48; i++) {
@@ -92,11 +92,11 @@ window.onload=(function(){
                                 });
             }
         }
-        drawMeanLine(POP_MEAN);
+        drawMeanLine(POP_MEAN, WIDTH);
 
     }
     createCanvas();
-    drawMean();
+    drawMean(WIDTH);
 
 
     // Mouse functions for top graph
@@ -120,7 +120,7 @@ window.onload=(function(){
         }
     });
 
-    function drawMean() {
+    function drawMean(WIDTH) {
         displayMean = topgraph
                         .text(WIDTH/2, 10, "Population Parameters: Mean = " + POP_MEAN + ", SD = " + POP_SD)
                         .attr({
@@ -132,18 +132,18 @@ window.onload=(function(){
 
 
     // Changes the population TRUE_DATA
-    function changePop(radio, data) {
+    function changePop(radio, data, WIDTH) {
         for (i = 0; i<48; i++) {
             popMove(POP_RECT[i], i, popRatio(POP_DATA[i]));
         }
         TRUE_DATA = createData(POP_DATA);
         POP_MEAN = getAverage(TRUE_DATA);
-        drawMeanLine(POP_MEAN);
+        drawMeanLine(POP_MEAN, WIDTH);
         displayMean.remove();
         drawMean();
     }
 
-    function drawMeanLine(mean) {
+    function drawMeanLine(mean, WIDTH) {
         try{
             meanLine.remove();
         }
@@ -156,7 +156,7 @@ window.onload=(function(){
                     });
     }
 
-    function drawInterval(limits) {
+    function drawInterval(limits, WIDTH) {
         var position = 350-(INTERVALS.length*16);
         if (INTERVALS.length>0) {
             var l = INTERVAL_DATA[INTERVALS.length-1][0];
@@ -265,7 +265,7 @@ window.onload=(function(){
         if (INTERVALS.length<20) {
             sample = drawSample($(samplesize).val());
             var limits = calculateInterval(sample);
-            drawInterval(limits);
+            drawInterval(limits, WIDTH);
         }
     });
 
