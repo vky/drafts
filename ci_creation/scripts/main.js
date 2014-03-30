@@ -1,18 +1,18 @@
 window.onload=(function(){
 
-	WIDTH=600,
-	T_HEIGHT=240,
-	B_HEIGHT=T_HEIGHT+120,
-	FONT_FAMILY="Arial, Helvetica, sans-serif",
-	POP_DATA=[0,0,0,0,0,0,0,0,0,0,1,1,2,3,4,7,9,13,17,22,27,31,35,38,40,40,38,35,31,27,22,17,13,9,7,4,3,2,1,1,0,0,0,0,0,0,0,0];
-	POP_RECT=[];
-	TRUE_DATA=createData(POP_DATA);
-	POP_MEAN=500+".00";
-	POP_SD=100+".00";
-	INTERVALS=[];
-	INTERVAL_DATA=[];
+var WIDTH = 600;
+var T_HEIGHT = 240;
+var B_HEIGHT = T_HEIGHT+120;
+var FONT_FAMILY = "Arial, Helvetica, sans-serif";
+var POP_DATA = [0,0,0,0,0,0,0,0,0,0,1,1,2,3,4,7,9,13,17,22,27,31,35,38,40,40,38,35,31,27,22,17,13,9,7,4,3,2,1,1,0,0,0,0,0,0,0,0];
+var POP_RECT = [];
+var TRUE_DATA = createData(POP_DATA);
+var POP_MEAN = 500+".00";
+var POP_SD = 100+".00";
+var INTERVALS = [];
+var INTERVAL_DATA = [];
 
-    isDragging=false;
+var isDragging = false;
 
 //******************************//
 //  POPULATION FUNCTIONS BELOW  //
